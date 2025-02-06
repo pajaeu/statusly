@@ -9,7 +9,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
         </svg>
     </button>
-    <div x-show="open" class="absolute py-2 mb-2 bottom-full left-0 w-full rounded bg-white border border-slate-200 shadow-lg">
+    <div x-show="open" x-on:click.outside="open = false" class="absolute py-2 mb-2 bottom-full left-0 w-full rounded bg-white border border-slate-200 shadow-lg">
         @foreach ($projects as $project)
             <a href="{{ route('projects.switch', ['id' => $project->id]) }}" wire:navigate class="w-full text-slate-500 hover:text-slate-600 hover:bg-slate-100 flex items-center gap-x-2 py-2.5 px-4 text-sm cursor-pointer transition-colors border-b border-slate-200">
                 <img src="{{ $project->avatarUrl }}" alt="{{ $project->name }}" class="size-6 rounded">
