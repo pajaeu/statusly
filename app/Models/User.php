@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail as MustBeVerified;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable implements \Illuminate\Contracts\Auth\MustVerifyEmail
+class User extends Authenticatable implements MustBeVerified
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, MustVerifyEmail;
@@ -22,6 +23,7 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\MustVer
         'name',
         'email',
         'password',
+		'current_project_id'
     ];
 
     /**
@@ -46,4 +48,19 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\MustVer
             'password' => 'hashed',
         ];
     }
+
+	public function getAvatarUrlAttribute(): string
+	{
+		return 'https://api.dicebear.com/7.x/initials/svg?backgroundType=gradientLinear&fontFamily=Arial&fontSize=36&seed=' . urlencode($this->name);
+	}
+
+	public function hasProject(Project $project): bool
+	{
+		return $this->projects->contains($project);
+	}
+
+	public function projects(): HasMany
+	{
+		return $this->hasMany(Project::class);
+	}
 }
