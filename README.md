@@ -14,3 +14,8 @@ A simple and elegant status page generator built with the modern stack of **Lara
 - ![Livewire](https://img.shields.io/badge/livewire-4E56A6?style=for-the-badge&logo=livewire&logoColor=white)
 - ![Tailwind](https://img.shields.io/badge/tailwindcss-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
 - ![MySQL](https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+
+## Screenshots
+
+![Login](.github/screens/login.png)
+![Services](.github/screens/services.png)
