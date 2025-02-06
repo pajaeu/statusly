@@ -4,7 +4,7 @@
         <x-projects.item :project="$project" />
     @empty
         <x-empty-state message="No projects created">
-            <x-button as="a" href="{{ route('projects.create') }}" class="mt-4">New project</x-button>
+            <x-button as="a" href="{{ route('projects.create') }}" wire:navigate class="mt-4">New project</x-button>
         </x-empty-state>
     @endforelse
 </div>

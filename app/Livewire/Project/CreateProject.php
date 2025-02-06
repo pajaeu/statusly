@@ -16,7 +16,7 @@ class CreateProject extends Component
 
 		$this->dispatch('projects-updated');
 
-		$this->redirectRoute('projects.index');
+		$this->redirectRoute('projects.index', navigate: true);
 	}
 
 	public function updated($name, $value)

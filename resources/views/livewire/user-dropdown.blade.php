@@ -11,7 +11,7 @@
     </button>
     <div x-show="open" class="absolute py-2 mb-2 bottom-full left-0 w-full rounded bg-white border border-slate-200 shadow-lg">
         @foreach ($projects as $project)
-            <a href="{{ route('projects.switch', ['id' => $project->id]) }}" class="w-full text-slate-500 hover:text-slate-600 hover:bg-slate-100 flex items-center gap-x-2 py-2.5 px-4 text-sm cursor-pointer transition-colors border-b border-slate-200">
+            <a href="{{ route('projects.switch', ['id' => $project->id]) }}" wire:navigate class="w-full text-slate-500 hover:text-slate-600 hover:bg-slate-100 flex items-center gap-x-2 py-2.5 px-4 text-sm cursor-pointer transition-colors border-b border-slate-200">
                 <img src="{{ $project->avatarUrl }}" alt="{{ $project->name }}" class="size-6 rounded">
                 <span>{{ $project->name }}</span>
                 @if($user->current_project_id === $project->id)
@@ -19,7 +19,7 @@
                 @endif
             </a>
         @endforeach
-        <a href="{{ route('projects.create') }}" class="w-full text-slate-500 hover:text-slate-600 hover:bg-slate-100 flex items-center gap-x-2 py-2.5 px-4 text-sm cursor-pointer transition-colors border-b border-slate-200">
+        <a href="{{ route('projects.create') }}" wire:navigate class="w-full text-slate-500 hover:text-slate-600 hover:bg-slate-100 flex items-center gap-x-2 py-2.5 px-4 text-sm cursor-pointer transition-colors border-b border-slate-200">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>
