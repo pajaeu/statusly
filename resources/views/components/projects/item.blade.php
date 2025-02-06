@@ -2,6 +2,8 @@
 	'project'
 ])
 
+@php($currentProject = auth()->user()->currentProject)
+
 <div x-data="{ open:false }" class="relative">
     <div @click="open = !open" class="block w-full p-4 border border-slate-200 rounded-md shadow bg-white hover:border-slate-300 hover:shadow-lg cursor-pointer transition-colors transition-shadow mb-4" wire:key="{{ $project->id }}">
         <div class="flex items-center">
@@ -28,12 +30,28 @@
         </div>
     </div>
     <div x-show="open" x-on:click.outside="open = false" class="absolute z-30 top-full left-1/2 transform -translate-x-1/2 mt-3 py-2 rounded bg-white border border-slate-300 shadow-lg">
-        @if($project->id !== auth()->user()->currentProject?->id)
+        @if($project->id !== $currentProject?->id)
             <a href="{{ route('projects.switch', ['id' => $project->id]) }}" wire:navigate class="w-full text-slate-500 hover:text-slate-600 hover:bg-slate-100 flex items-center gap-x-2 py-2.5 px-4 text-sm cursor-pointer transition-colors border-b border-slate-200">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
                 </svg>
                 <span>Switch to project</span>
+            </a>
+        @else
+            @if($currentProject?->services->count() > 0)
+                <a href="{{ route('services.index') }}" wire:navigate class="w-full text-slate-500 hover:text-slate-600 hover:bg-slate-100 flex items-center gap-x-2 py-2.5 px-4 text-sm cursor-pointer transition-colors border-b border-slate-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    </svg>
+                    <span>Show services</span>
+                </a>
+            @endif
+            <a href="{{ route('services.create') }}" wire:navigate class="w-full text-slate-500 hover:text-slate-600 hover:bg-slate-100 flex items-center gap-x-2 py-2.5 px-4 text-sm cursor-pointer transition-colors border-b border-slate-200">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                <span>Add service</span>
             </a>
         @endif
         <a href="" wire:navigate class="w-full text-slate-500 hover:text-slate-600 hover:bg-slate-100 flex items-center gap-x-2 py-2.5 px-4 text-sm cursor-pointer transition-colors border-b border-slate-200">

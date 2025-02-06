@@ -18,6 +18,10 @@ class CreateService extends Component
 
 	public function render()
 	{
-		return view('livewire.services.create');
+		$project = auth()->user()->currentProject;
+
+		return view('livewire.services.create', [
+			'currentProject' => $project
+		]);
 	}
 }
