@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Auth\MustVerifyEmail;
 use Illuminate\Contracts\Auth\MustVerifyEmail as MustBeVerified;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -62,5 +63,10 @@ class User extends Authenticatable implements MustBeVerified
 	public function projects(): HasMany
 	{
 		return $this->hasMany(Project::class);
+	}
+
+	public function currentProject(): BelongsTo
+	{
+		return $this->belongsTo(Project::class, 'current_project_id');
 	}
 }

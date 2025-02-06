@@ -22,7 +22,7 @@ class ListProject extends Component
 		try {
 			$project->delete();
 
-			if ($user->current_project_id === $project->id) {
+			if ($user->currentProject?->id === $project->id) {
 				$user->update([
 					'current_project_id' => $user->projects()->latest()->first()->id ?? null,
 				]);

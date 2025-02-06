@@ -14,7 +14,7 @@
             <a href="{{ route('projects.switch', ['id' => $project->id]) }}" wire:navigate class="w-full text-slate-500 hover:text-slate-600 hover:bg-slate-100 flex items-center gap-x-2 py-2.5 px-4 text-sm cursor-pointer transition-colors border-b border-slate-200">
                 <img src="{{ $project->avatarUrl }}" alt="{{ $project->name }}" class="size-6 rounded">
                 <span>{{ $project->name }}</span>
-                @if($user->current_project_id === $project->id)
+                @if($user->currentProject?->id === $project->id)
                     <span class="ms-auto block size-2 rounded-full bg-green-500"></span>
                 @endif
             </a>
