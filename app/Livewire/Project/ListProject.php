@@ -11,6 +11,10 @@ class ListProject extends Component
 	{
 		$project = Project::findOrFail($id);
 
+		if (!auth()->user()->hasProject($project)) {
+			abort(403);
+		}
+
 		$project->delete();
 
 		$this->dispatch('projects-updated');
@@ -18,8 +22,13 @@ class ListProject extends Component
 
 	public function render()
 	{
+		$projects = auth()->user()
+			->projects()
+			->orderBy('created_at', 'desc')
+			->get();
+
 		return view('livewire.projects.list', [
-			'projects' => Project::all()
+			'projects' => $projects,
 		]);
 	}
 }

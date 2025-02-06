@@ -15,6 +15,8 @@ class CreateProject extends Component
 		$this->form->store();
 
 		$this->dispatch('projects-updated');
+
+		$this->redirectRoute('projects.index');
 	}
 
 	public function updated($name, $value)
@@ -30,7 +32,6 @@ class CreateProject extends Component
 				'slug' => Str::slug($value)
 			]);
 		}
-
 	}
 	
     public function render()
