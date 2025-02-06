@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>statusly</title>
-        @vite(['resources/css/app.css', 'resources/css/app.js'])
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="min-h-screen bg-gradient-to-bl from-orange-300 to-orange-600">
         {{ $slot }}

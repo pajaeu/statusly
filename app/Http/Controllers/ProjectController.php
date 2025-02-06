@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProjectRequest;
 use App\Models\Project;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -16,7 +15,11 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+		$projects = Project::all();
+
+        return view('projects.index', [
+			'projects' => $projects
+		]);
     }
 
     /**
@@ -24,33 +27,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('project.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreProjectRequest $request)
-    {
-		DB::beginTransaction();
-
-		try {
-			$user = auth()->user();
-
-			$project = $user->projects()->create($request->validated());
-
-			$user->update([
-				'current_project_id' => $project->id
-			]);
-
-			DB::commit();
-
-			return to_route('dashboard');
-		} catch (\Exception $e) {
-			DB::rollBack();
-
-			return back();
-		}
+        return view('projects.create');
     }
 
     /**
@@ -85,7 +62,7 @@ class ProjectController extends Controller
         //
     }
 
-	public function switch(int $id): RedirectResponse
+	public function switch(int $id)
 	{
 		$project = Project::findOrFail($id);
 		$user = auth()->user();
