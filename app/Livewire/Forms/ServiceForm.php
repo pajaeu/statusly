@@ -29,8 +29,6 @@ class ServiceForm extends Form
 
 		$user = auth()->user();
 
-		sleep(2);
-
 		$user->currentProject
 			->services()
 			->create($this->only('name', 'status'));
