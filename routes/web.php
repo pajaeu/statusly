@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Project\ShowProjectController;
 use App\Http\Controllers\Project\SwitchProjectController;
 use App\Livewire\Dashboard;
 use App\Livewire\Project\CreateProject;
@@ -22,3 +23,4 @@ Route::group(['middleware' => ['auth', 'verified', 'has-project']], function () 
 	Route::get('/services/create', CreateService::class)->name('services.create');
 });
 
+Route::get('/@{slug}', ShowProjectController::class)->name('project.show');
