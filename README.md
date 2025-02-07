@@ -19,4 +19,6 @@ A simple and elegant status page generator built with the modern stack of **Lara
 
 ![Login](.github/screens/login.png)
 
+![Projects](.github/screens/projects.png)
+
 ![Services](.github/screens/services.png)
