@@ -6,7 +6,9 @@
         </div>
     </div>
     @forelse($projects as $project)
-        <x-projects.item :project="$project" />
+        <div wire:key="{{ $project->id }}">
+            <x-projects.item :project="$project" />
+        </div>
     @empty
         <x-empty-state message="No projects created">
             <x-button as="a" href="{{ route('projects.create') }}" wire:navigate class="mt-4">New project</x-button>
