@@ -2,16 +2,26 @@
 
 namespace App\Livewire\Service;
 
-use App\Livewire\Forms\ServiceForm;
+use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 class CreateService extends Component
 {
-	public ServiceForm $form;
+	#[Validate('required')]
+	public string $name;
+
+	#[Validate('required|string')]
+	public string $status;
 
 	public function save()
 	{
-		$this->form->store();
+		$this->validate();
+
+		$user = auth()->user();
+
+		$user->currentProject
+			->services()
+			->create($this->pull(['name', 'status']));
 
 		$this->redirectRoute('services.index', navigate: true);
 	}

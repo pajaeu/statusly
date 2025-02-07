@@ -15,8 +15,8 @@ class EnsureUserHasProject
      */
     public function handle(Request $request, Closure $next): Response
     {
-		if (auth()->user()->projects->count() === 0 && !request()->routeIs('projects.*')) {
-			return to_route('projects.create');
+		if (auth()->user()->projects->count() === 0 && !request()->routeIs('introduction')) {
+			return to_route('introduction');
 		}
 
         return $next($request);

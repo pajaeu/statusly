@@ -4,8 +4,8 @@
         <form wire:submit="save">
             <div class="mb-4">
                 <label for="name" class="block mb-2 text-sm text-slate-400">Name</label>
-                <input type="text" wire:model="form.name" class="w-full p-2 border rounded-lg transition-all focus:ring-2 focus:ring-orange-500 outline-0">
-                @error('form.name')
+                <input type="text" wire:model="name" class="w-full p-2 border rounded-lg transition-all focus:ring-2 focus:ring-orange-500 outline-0">
+                @error('name')
                     <x-input-error :message="$message"/>
                 @enderror
             </div>

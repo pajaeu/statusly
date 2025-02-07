@@ -1,0 +1,1 @@
+<div class="py-3 px-4 font-medium text-red-500 bg-red-100 border border-red-200 shadow rounded">{{ $slot }}</div>
