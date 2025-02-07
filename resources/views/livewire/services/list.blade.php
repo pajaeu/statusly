@@ -1,9 +1,6 @@
 <div class="w-full max-w-6xl mx-auto">
     <div class="flex items-center mb-6">
-        <div class="flex items-center">
-            <img src="{{ $currentProject->avatarUrl }}" class="size-10 rounded" alt="{{ $currentProject->name }}">
-            <h1 class="ms-3 font-semibold text-3xl text-slate-800">Services</h1>
-        </div>
+        <x-projects.current-heading heading="Services"/>
         <div class="ms-auto">
             <x-button as="a" href="{{ route('services.create') }}" wire:navigte>New service</x-button>
         </div>

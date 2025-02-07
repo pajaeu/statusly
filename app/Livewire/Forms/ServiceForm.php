@@ -14,9 +14,13 @@ class ServiceForm extends Form
 	#[Validate('required')]
 	public string $name = '';
 
+	#[Validate('required|string')]
+	public string $status = 'operational';
+
 	public function setProject(Service $service)
 	{
 		$this->service = $service;
+		$this->status = $service->status;
 	}
 
 	public function store()
@@ -25,9 +29,11 @@ class ServiceForm extends Form
 
 		$user = auth()->user();
 
+		sleep(2);
+
 		$user->currentProject
 			->services()
-			->create($this->only('name'));
+			->create($this->only('name', 'status'));
 	}
 
 	public function update()

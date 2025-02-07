@@ -29,7 +29,7 @@
             </div>
         </div>
     </div>
-    <div x-show="open" x-on:click.outside="open = false" class="absolute z-30 top-full left-1/2 transform -translate-x-1/2 mt-3 py-2 rounded bg-white border border-slate-300 shadow-lg">
+    <div x-show="open" x-on:click.outside="open = false" class="absolute z-30 top-full left-0 mt-2 py-2 rounded bg-white border border-slate-200 shadow">
         @if($project->id !== $currentProject?->id)
             <a href="{{ route('projects.switch', ['id' => $project->id]) }}" wire:navigate class="w-full text-slate-500 hover:text-slate-600 hover:bg-slate-100 flex items-center gap-x-2 py-2.5 px-4 text-sm cursor-pointer transition-colors border-b border-slate-200">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">

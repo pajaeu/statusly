@@ -16,7 +16,7 @@
                     <x-input-error :message="$message"/>
                 @enderror
             </div>
-            <x-button>Save</x-button>
+            <x-button>Add project</x-button>
         </form>
     </div>
 </div>
