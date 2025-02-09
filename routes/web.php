@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => ['auth', 'verified', 'has-project']], function () {
 	Route::get('/', Dashboard::class)->name('dashboard');
 
-	Route::get('/introduction', IntroductionCreateProject::class)->name('introduction');
-
 	Route::get('/projects', ListProject::class)->name('projects.index');
 	Route::get('/projects/create', CreateProject::class)->name('projects.create');
 	Route::get('/projects/{id}/switch', SwitchProjectController::class)->name('projects.switch');

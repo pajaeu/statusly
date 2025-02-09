@@ -60,6 +60,11 @@ class User extends Authenticatable implements MustBeVerified
 		return $this->projects->contains($project);
 	}
 
+	public function hasAnyProject(): bool
+	{
+		return $this->projects->count() > 0;
+	}
+
 	public function projects(): HasMany
 	{
 		return $this->hasMany(Project::class);

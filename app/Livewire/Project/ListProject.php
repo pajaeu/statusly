@@ -13,9 +13,7 @@ class ListProject extends Component
 		$project = Project::findOrFail($id);
 		$user = auth()->user();
 
-		if (!$user->hasProject($project)) {
-			abort(403);
-		}
+		$this->authorize('delete', $project);
 
 		DB::beginTransaction();;
 

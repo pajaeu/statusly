@@ -2,8 +2,9 @@
 
 namespace App\Livewire\Project;
 
-use Illuminate\Support\Facades\DB;
+use App\Actions\CreateProject as CreateProjectAction;
 use Illuminate\Support\Str;
+use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
@@ -16,34 +17,17 @@ class CreateProject extends Component
 	#[Validate('required|unique:projects')]
 	public string $slug = '';
 
-	public function save()
+	public function save(CreateProjectAction $action)
 	{
 		$this->validate();
 
-		$user = auth()->user();
-
-		if ($user->projects->count() >= 5) {
+		if (auth()->user()->projects->count() >= 5) {
 			session()->flash('danger', 'You can only have 5 projects');
 
 			$this->redirectRoute('projects.index', navigate: true);
 		}
 
-		DB::beginTransaction();;
-
-		try {
-			$project = $user->projects()
-				->create(
-					$this->pull(['name', 'slug'])
-				);
-
-			$user->update([
-				'current_project_id' => $project->id
-			]);
-
-			DB::commit();
-		} catch (\Exception $e) {
-			DB::rollBack();
-		}
+		$action->create($this->pull('name'), $this->pull('slug'));
 
 		$this->dispatch('projects-updated');
 
@@ -63,6 +47,7 @@ class CreateProject extends Component
 		}
 	}
 
+	#[Layout('layouts.guest')]
 	public function render()
 	{
 		return view('livewire.projects.create');
