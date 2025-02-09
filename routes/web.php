@@ -21,4 +21,4 @@ Route::group(['middleware' => ['auth', 'verified', 'has-project']], function () 
 	Route::get('/services/create', CreateService::class)->name('services.create');
 });
 
-Route::get('/@{slug}', ShowProjectController::class)->name('project.show');
+Route::get('/@{slug}', ShowProjectController::class)->name('projects.show');

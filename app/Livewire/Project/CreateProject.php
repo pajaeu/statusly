@@ -14,9 +14,6 @@ class CreateProject extends Component
 	#[Validate('required|min:6')]
 	public string $name = '';
 
-	#[Validate('required|unique:projects')]
-	public string $slug = '';
-
 	public function save(CreateProjectAction $action)
 	{
 		$this->validate();
@@ -27,24 +24,13 @@ class CreateProject extends Component
 			$this->redirectRoute('projects.index', navigate: true);
 		}
 
-		$action->create($this->pull('name'), $this->pull('slug'));
+		$name = $this->pull('name');
+
+		$action->create($name, Str::slug($name . '-' . uniqid()));
 
 		$this->dispatch('projects-updated');
 
 		$this->redirectRoute('projects.index', navigate: true);
-	}
-
-	public function updated($name, $value)
-	{
-		if ($name === 'name' && empty($this->slug)) {
-			$this->fill(['slug' => Str::slug($value)]);
-		}
-
-		if ($name === 'slug') {
-			$this->fill([
-				'slug' => Str::slug($value)
-			]);
-		}
 	}
 
 	#[Layout('layouts.guest')]

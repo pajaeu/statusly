@@ -1,7 +1,7 @@
 <div class="w-screen h-screen bg-slate-100 flex items-center justify-center">
     <div class="w-full max-w-sm">
         <div class="bg-white border border-slate-200 rounded-lg shadow p-8">
-            <h1 class="font-semibold text-2xl text-slate-800 mb-6">New project</h1>
+            <h1 class="font-semibold text-xl text-slate-800 mb-6">New project</h1>
             <form wire:submit="save">
                 <div class="mb-4">
                     <label for="name" class="block mb-2 text-sm text-slate-400">Name</label>
