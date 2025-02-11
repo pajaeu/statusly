@@ -10,8 +10,10 @@ use App\Livewire\Settings\EditTheme;
 use App\Livewire\Settings\EditProject;
 use Illuminate\Support\Facades\Route;
 
+Route::view('/', 'home')->name('home');
+
 Route::group(['middleware' => ['auth', 'verified', 'has-project']], function () {
-	Route::get('/', Dashboard::class)->name('dashboard');
+	Route::get('/dashboard', Dashboard::class)->name('dashboard');
 
 	Route::get('/projects/create', CreateProject::class)->name('projects.create');
 	Route::get('/projects/{id}/switch', SwitchProjectController::class)->name('projects.switch');

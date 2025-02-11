@@ -1,7 +1,7 @@
 <x-guest-layout>
-    <div class="w-screen h-screen flex items-center">
+    <div class="w-screen h-screen flex items-center bg-slate-100">
         <div class="w-full sm:max-w-sm px-4 md:px-0 mx-auto text-slate-800">
-            <a href="{{ route('dashboard') }}">
+            <a href="{{ route('home') }}">
                 <img src="{{ asset('img/logo-dark.png') }}" class="w-52 mx-auto mb-8" alt="Statusly logo">
             </a>
             <div class="bg-white border border-slate-200 rounded-lg shadow px-5 py-4">
