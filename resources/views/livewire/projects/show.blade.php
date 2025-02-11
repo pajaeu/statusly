@@ -6,7 +6,7 @@
                 <div class="flex items-center py-3 border-b border-slate-200 last:border-b-0">
                     <div class="inline-block text-base font-semibold flex-1 text-slate-800">
                         {{ $service->name }}
-                        <div class="text-xs font-normal text-slate-500">{{ $service->updated_at->diffForHumans() }}</div>
+                        <div class="mt-1 text-xs font-normal text-slate-400">updated {{ $service->updated_at->diffForHumans() }}</div>
                     </div>
                     <div class="text-xs font-medium rounded-full flex items-center
                         @if ($service->status === 'operational') text-green-500
@@ -37,7 +37,7 @@
     <div class="pt-4 pb-8 flex items-center justify-center">
         <div class="text-center">
             <small class="text-sm font-medium text-slate-700">powered by</small>
-            <a href="{{ route('dashboard') }}" class="block mt-1 hover:opacity-45 transition-opacity">
+            <a href="{{ route('home') }}" class="block mt-1 hover:opacity-45 transition-opacity ease-in">
                 <img src="{{ asset('img/logo-dark.png') }}" alt="statusly" class="w-32">
             </a>
         </div>

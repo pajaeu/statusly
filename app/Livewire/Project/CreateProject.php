@@ -19,9 +19,9 @@ class CreateProject extends Component
 		$this->validate();
 
 		if (auth()->user()->projects->count() >= 5) {
-			session()->flash('danger', 'You can only have 5 projects');
+			$this->addError('name', 'You can create only 5 projects.');
 
-			$this->redirectRoute('projects.index', navigate: true);
+			return;
 		}
 
 		$name = $this->pull('name');
