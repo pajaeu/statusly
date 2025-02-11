@@ -12,9 +12,9 @@ class DeleteProject
 	{
 		DB::beginTransaction();;
 
-		$user = auth()->user();
-
 		try {
+			$user = auth()->user();
+
 			$project->delete();
 
 			if ($user->current_project_id === $project->id) {
