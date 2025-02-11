@@ -1,9 +1,9 @@
-<div wire:poll>
+<div wire:poll class="w-screen h-screen bg-slate-100">
     @includeIf('projects.themes.' . $project->theme, ['project' => $project])
-    <div class="w-full sm:max-w-3xl pt-10 px-4 md:px-0 mx-auto text-slate-800 ">
-        <div class="bg-white rounded-lg shadow px-6 py-4 mb-10">
+    <div class="w-full sm:max-w-3xl pt-10 px-4 md:px-0 mx-auto text-slate-800">
+        <div class="bg-white rounded-lg shadow border border-slate-200 px-6 py-4 mb-10">
             @forelse($project->services as $service)
-                <div class="flex items-center py-3 border-b border-gray-200 last:border-b-0">
+                <div class="flex items-center py-3 border-b border-slate-200 last:border-b-0">
                     <div class="inline-block text-base font-semibold flex-1 text-slate-800">{{ $service->name }}</div>
                     <div class="text-xs font-medium rounded-full flex items-center
                         @if ($service->status === 'operational') text-green-500
