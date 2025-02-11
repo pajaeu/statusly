@@ -2,7 +2,7 @@
     <div class="flex items-center mb-6">
         <x-projects.current-heading heading="Services"/>
         <div class="ms-auto">
-            <x-button as="a" href="{{ route('services.create') }}" wire:navigte>New service</x-button>
+            <x-button as="a" href="{{ route('services.create') }}" wire:navigate>New service</x-button>
         </div>
     </div>
     @forelse($services as $service)

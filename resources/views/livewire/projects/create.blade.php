@@ -11,6 +11,7 @@
                     @enderror
                 </div>
                 <x-button class="w-full py-3">Create</x-button>
+                <a href="{{ route('dashboard') }}" wire:navigate class="mt-3 block text-slate-700 text-xs text-center hover:underline">Or go back</a>
             </form>
         </div>
         <img src="{{ asset('img/logo-dark.png') }}" class="w-24 mx-auto mt-8" alt="Statusly logo">

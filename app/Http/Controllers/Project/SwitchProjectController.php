@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Project;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use Illuminate\Support\Facades\Gate;
 
 class SwitchProjectController extends Controller
 {
@@ -11,13 +12,10 @@ class SwitchProjectController extends Controller
 	public function __invoke(int $id)
 	{
 		$project = Project::findOrFail($id);
-		$user = auth()->user();
 
-		if (!$user->hasProject($project)) {
-			abort(403);
-		}
+		Gate::authorize('switch', $project);
 
-		$user->update([
+		auth()->user()->update([
 			'current_project_id' => $project->id
 		]);
 

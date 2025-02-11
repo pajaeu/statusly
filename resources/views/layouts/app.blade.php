@@ -12,7 +12,7 @@
 <div class="fixed z-40 w-full max-w-xs h-full border-r border-slate-200 bg-slate-100">
     <div class="flex flex-col h-full justify-between">
         <div class="px-3 py-4">
-            <a href="{{ route('dashboard') }}" wire:navigate class="block px-2 mt-3 mb-6">
+            <a href="{{ route('dashboard') }}" class="block px-2 mt-3 mb-6">
                 <img src="{{ asset('img/logo-dark.png') }}" class="w-24" alt="Statusly logo">
             </a>
             @include('layouts.navigation')

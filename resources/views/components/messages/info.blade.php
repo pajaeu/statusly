@@ -1,1 +1,1 @@
-<div class="p-2 text-red-500 bg-red-200">{{ $slot }}</div>
+<div class="py-3 px-4 font-medium text-blue-500 bg-blue-100 border border-blue-200 shadow rounded">{{ $slot }}</div>

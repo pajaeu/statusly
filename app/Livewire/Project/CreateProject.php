@@ -30,7 +30,7 @@ class CreateProject extends Component
 
 		$this->dispatch('projects-updated');
 
-		$this->redirectRoute('projects.index', navigate: true);
+		$this->redirectRoute('services.index', navigate: true);
 	}
 
 	#[Layout('layouts.guest')]

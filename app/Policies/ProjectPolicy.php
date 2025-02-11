@@ -47,4 +47,9 @@ class ProjectPolicy
     {
 		return $user->hasProject($project);
     }
+
+	public function switch(User $user, Project $project): bool
+	{
+		return $user->hasProject($project);
+	}
 }
