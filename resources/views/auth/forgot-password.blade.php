@@ -1,10 +1,10 @@
 <x-guest-layout>
-    <div class="w-screen h-screen bg-gradient-to-bl from-orange-300 to-orange-600">
-        <div class="w-full sm:max-w-md pt-20 px-4 md:px-0 mx-auto text-slate-800">
+    <div class="w-screen h-screen flex items-center">
+        <div class="w-full sm:max-w-sm px-4 md:px-0 mx-auto text-slate-800">
             <a href="{{ route('dashboard') }}">
-                <img src="{{ asset('img/logo-light.png') }}" class="w-64 mx-auto mb-12" alt="Statusly logo">
+                <img src="{{ asset('img/logo-dark.png') }}" class="w-52 mx-auto mb-8" alt="Statusly logo">
             </a>
-            <div class="bg-white rounded-lg shadow px-6 py-4 mb-6">
+            <div class="mb-6">
                 @if (session('status'))
                     <div class="mb-4 font-medium text-sm text-green-600">
                         {{ session('status') }}
@@ -13,14 +13,18 @@
                 <form action="{{ route('password.email') }}" method="post">
                     @csrf
                     <div class="mb-4">
-                        <label for="email" class="block mb-2 text-sm text-slate-400">Email</label>
-                        <input type="email" id="email" name="email" class="w-full p-2 border rounded-lg transition-all focus:ring-2 focus:ring-orange-500 outline-0" value="{{ old('email') }}">
+                        <input type="email" id="email" name="email"
+                               class="w-full p-3 placeholder:text-xs border border-slate-300 rounded-lg transition-all focus:ring-2 focus:ring-orange-500 outline-0"
+                               value="{{ old('email') }}" placeholder="Email">
                         <x-input-error :message="$errors->first('email')"/>
                     </div>
                     <div class="text-center">
-                        <x-button class="w-full !text-sm">Send reset link</x-button>
+                        <x-button class="w-full !text-sm !py-3">Send password reset link</x-button>
                     </div>
                 </form>
+            </div>
+            <div class="text-center text-sm text-slate-600">
+                <p>or <a class="underline hover:no-underline" href="{{ route('login') }}">return to login</a></p>
             </div>
         </div>
     </div>
