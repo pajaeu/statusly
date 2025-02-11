@@ -23,7 +23,9 @@
     </div>
 </div>
 <div class="ms-80 p-6">
-    <x-messages/>
+    @persist('flashes')
+        <livewire:flash-messages/>
+    @endpersist
     {{ $slot }}
 </div>
 @livewireScripts

@@ -23,6 +23,8 @@ class CreateService extends Component
 			->services()
 			->create($this->pull(['name', 'status']));
 
+		$this->dispatch('flash-message', type: 'success', message: 'Service successfully created.');
+
 		$this->redirectRoute('services.index', navigate: true);
 	}
 

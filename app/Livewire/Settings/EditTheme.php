@@ -22,7 +22,7 @@ class EditTheme extends Component
 			'theme' => $this->theme,
 		]);
 
-		session()->flash('success', 'Theme updated successfully.');
+		$this->dispatch('flash-message', type: 'success', message: 'Theme successfully updated.');
 
 		$this->redirectRoute('settings.theme', navigate: true);
 	}

@@ -12,6 +12,8 @@ class ListService extends Component
 		$service = Service::findOrFail($id);
 
 		$service->delete();
+
+		$this->dispatch('flash-message', type: 'success', message: 'Service successfully deleted.');
 	}
 
 	public function render()
