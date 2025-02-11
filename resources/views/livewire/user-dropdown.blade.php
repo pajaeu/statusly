@@ -5,11 +5,11 @@
         <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ms-auto size-5">
             <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
         </svg>
-        <svg x-show="open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ms-auto size-5">
+        <svg x-show="open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ms-auto size-5" x-cloak>
             <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
         </svg>
     </button>
-    <div x-show="open" x-on:click.outside="open = false" class="absolute py-2 mb-2 bottom-full left-0 w-full rounded bg-white border border-slate-200 shadow-lg">
+    <div x-show="open" x-on:click.outside="open = false" class="absolute py-2 mb-2 bottom-full left-0 w-full rounded bg-white border border-slate-200 shadow-lg" x-cloak>
         @foreach ($projects as $project)
             @php($route = ($user->currentProject?->id === $project->id) ? route('settings.project') : route('projects.switch', ['id' => $project->id]))
             <a href="{{ $route }}" wire:navigate class="w-full text-slate-500 hover:text-slate-600 hover:bg-slate-100 flex items-center gap-x-2 py-2.5 px-4 text-sm cursor-pointer transition-colors border-b border-slate-200">
