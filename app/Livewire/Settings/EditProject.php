@@ -11,9 +11,9 @@ class EditProject extends Component
 {
 	public Project $project;
 
-	public string $name = '';
+	public string $name;
 
-	public string $slug = '';
+	public string $slug;
 
 	public function mount()
 	{

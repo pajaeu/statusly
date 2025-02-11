@@ -12,7 +12,7 @@ class CreateProject extends Component
 {
 
 	#[Validate('required|min:6')]
-	public string $name = '';
+	public string $name;
 
 	public function save(CreateProjectAction $action)
 	{
