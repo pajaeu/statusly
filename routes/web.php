@@ -6,7 +6,7 @@ use App\Livewire\Dashboard;
 use App\Livewire\Project\CreateProject;
 use App\Livewire\Service\CreateService;
 use App\Livewire\Service\ListService;
-use App\Livewire\Settings\EditDesign;
+use App\Livewire\Settings\EditTheme;
 use App\Livewire\Settings\EditProject;
 use Illuminate\Support\Facades\Route;
 
@@ -21,7 +21,7 @@ Route::group(['middleware' => ['auth', 'verified', 'has-project']], function () 
 
 	Route::group(['prefix' => 'settings', 'as' => 'settings.'], function () {
 		Route::get('/projects', EditProject::class)->name('project');
-		Route::get('/design', EditDesign::class)->name('design');
+		Route::get('/theme', EditTheme::class)->name('theme');
 	});
 });
 

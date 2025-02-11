@@ -1,7 +1,3 @@
-@props([
-	'status'
-])
-
 <div {{ $attributes->merge(['class' => 'status-inputs']) }}>
     <label class="block mb-2 text-sm text-slate-400">Status</label>
     <div class="flex items-center gap-3">
