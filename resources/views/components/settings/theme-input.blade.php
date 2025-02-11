@@ -14,6 +14,12 @@
             </label>
         </div>
         <div class="flex-1">
+            <input type="radio" id="green" wire:model="theme" value="green" class="hidden peer" required />
+            <label for="green" class="block p-2 text-slate-800 bg-white border border-slate-200 rounded-lg cursor-pointer peer-checked:border-orange-500 hover:border-slate-300 transition-colors">
+                <span class="block text-white text-center text-lg p-4 bg-gradient-to-bl from-green-300 to-green-600 rounded">Green</span>
+            </label>
+        </div>
+        <div class="flex-1">
             <input type="radio" id="dark" wire:model="theme" value="dark" class="hidden peer" required />
             <label for="dark" class="block p-2 text-slate-800 bg-white border border-slate-200 rounded-lg cursor-pointer peer-checked:border-orange-500 hover:border-slate-300 transition-colors">
                 <span class="block text-white text-center text-lg p-4 bg-gradient-to-bl from-slate-800 to-slate-900 rounded">Dark</span>
