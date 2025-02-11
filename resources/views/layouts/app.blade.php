@@ -22,7 +22,7 @@
         </div>
     </div>
 </div>
-<div class="ms-80 p-6">
+<div class="ms-80 p-10">
     @persist('flashes')
         <livewire:flash-messages/>
     @endpersist
