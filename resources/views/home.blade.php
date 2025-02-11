@@ -12,13 +12,17 @@
             </div>
         </div>
     </header>
-    <div class="flex items-center justify-center w-full max-w-2xl gap-6 px-8 pt-24 pb-8 mx-auto text-left md:px-12 xl:px-20 sm:pb-16 md:pt-32 lg:max-w-5xl">
+    <div class="flex items-center justify-center w-full max-w-2xl gap-6 px-8 pt-24 pb-8 mx-auto text-left md:px-12 xl:px-20 sm:pb-16 md:pt-32 lg:max-w-4xl">
         <div class="text-center">
-            <h1 class="text-5xl font-bold tracking-tighter sm:text-6xl md:text-8xl text-slate-900">Display your project service status</h1>
+            <h1 class="text-5xl font-bold tracking-tighter sm:text-6xl md:text-7xl text-slate-900">Display your project <span class="text-transparent bg-clip-text bg-gradient-to-br from-orange-300 to-orange-600 italic">service status</span></h1>
             <p class="mt-5 text-lg font-normal text-slate-500">A simple way to display service status designed for smaller projects.</p>
             <div class="mt-8 flex justify-center gap-2">
-                <a href="{{ route('register') }}" class="inline-flex items-center justify-center px-5 py-3 border-0 text-white bg-orange-500 rounded-lg font-semibold text-md hover:bg-orange-600 focus:outline-none focus:ring-0 focus:ring-offset-0 transition ease-in-out duration-150">Get started</a>
-                <a href="{{ route('register') }}" class="inline-flex items-center justify-center px-5 py-3 border-0 text-slate-900 bg-slate-100 rounded-lg font-semibold text-md hover:bg-slate-200 focus:outline-none focus:ring-0 focus:ring-offset-0 transition ease-in-out duration-150">Check demo</a>
+                <a href="{{ route('register') }}" class="inline-flex items-center justify-center gap-2 px-5 py-3 border-0 text-white bg-orange-500 rounded-lg font-semibold text-md hover:bg-orange-600 focus:outline-none focus:ring-0 focus:ring-offset-0 transition ease-in-out duration-150">
+                    <span>Get started</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+                    </svg>
+                </a>
             </div>
         </div>
     </div>
