@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Settings;
 
+use App\Actions\DeleteProject;
 use App\Models\Project;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
@@ -40,9 +41,9 @@ class EditProject extends Component
 		$this->redirect(back()->getTargetUrl(), true);
 	}
 
-	public function delete()
+	public function delete(DeleteProject $action)
 	{
-		$this->project->delete();
+		$action->handle($this->project);
 
 		session()->flash('success', 'Project deleted successfully.');
 
