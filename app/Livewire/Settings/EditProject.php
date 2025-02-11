@@ -44,6 +44,8 @@ class EditProject extends Component
 	{
 		$this->project->delete();
 
+		session()->flash('success', 'Project deleted successfully.');
+
 		$this->dispatch('projects-updated');
 
 		$this->redirectRoute('dashboard', navigate: true);

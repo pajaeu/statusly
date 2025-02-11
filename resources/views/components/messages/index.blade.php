@@ -1,8 +1,8 @@
-<div class="flex flex-col gap-4 mb-4">
+<div class="flex flex-col mb-4">
     @foreach(['success', 'danger', 'warning', 'info'] as $key)
         @if(session()->has($key))
             <div wire-key="{{ uniqid() }}" x-data="{ closed: false }">
-                <div x-show="!closed" @click="closed = true" class="cursor-pointer">
+                <div x-show="!closed" class="mb-4 py-3 px-4 flex items-center gap-2 font-medium text-slate-900 bg-slate-200 rounded-lg">
                     @if($key === 'success')
                         <x-messages.success>{{ session($key) }}</x-messages.success>
                     @elseif($key === 'danger')
