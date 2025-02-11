@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <header class="py-8">
+    <header class="py-8 border-b border-slate-200">
         <div class="w-full px-7 max-w-7xl mx-auto">
             <div class="flex items-center">
                 <a href="{{ route('home') }}">
@@ -12,7 +12,7 @@
             </div>
         </div>
     </header>
-    <div class="flex items-center justify-center w-full max-w-2xl gap-6 px-8 pt-32 mx-auto text-left md:px-12 xl:px-20 lg:pt-32 lg:pb-16 lg:max-w-5xl">
+    <div class="flex items-center justify-center w-full max-w-2xl gap-6 px-8 pt-24 pb-8 mx-auto text-left md:px-12 xl:px-20 sm:pb-16 md:pt-32 lg:max-w-5xl">
         <div class="text-center">
             <h1 class="text-5xl font-bold tracking-tighter sm:text-6xl md:text-8xl text-slate-900">Display your project service status</h1>
             <p class="mt-5 text-lg font-normal text-slate-500">A simple way to display service status designed for smaller projects.</p>
@@ -22,7 +22,7 @@
             </div>
         </div>
     </div>
-    <div class="pb-20">
+    <div class="pb-10 lg:pb-20">
         <div class="w-full px-7 max-w-7xl mx-auto">
             <div class="ring-1 ring-slate-200 rounded-[20px] p-2 shadow-lg">
                 <img src="{{ asset('img/screenshot.png') }}" alt="Statusly screenshot" class="w-full rounded-xl">
@@ -35,7 +35,7 @@
                 <ul class="flex flex-wrap space-x-5 text-xs">
                     <li class="mb-6 text-center flex-full lg:flex-none lg:mb-0">© 2025 Pavel Skrbel. All rights reserved.</li>
                 </ul>
-                <ul class="flex items-center mt-10 space-x-5 lg:mt-0">
+                <ul class="flex items-center mt-6 space-x-5 lg:mt-0">
                     <li>
                         <a href="https://github.com/pajaeu/statusly" target="_blank" class="text-slate-600 hover:text-slate-900">
                             <span class="sr-only">GitHub</span>
