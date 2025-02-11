@@ -38,6 +38,7 @@
             <div class="flex flex-col items-center justify-between py-10 border-t border-solid lg:flex-row border-slate-200">
                 <ul class="flex flex-wrap space-x-5 text-xs">
                     <li class="mb-6 text-center flex-full lg:flex-none lg:mb-0">© 2025 Pavel Skrbel. All rights reserved.</li>
+                    <li>v.1.0.0</li>
                 </ul>
                 <ul class="flex items-center mt-6 space-x-5 lg:mt-0">
                     <li>
