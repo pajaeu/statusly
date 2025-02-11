@@ -40,6 +40,15 @@ class EditProject extends Component
 		$this->redirect(back()->getTargetUrl(), true);
 	}
 
+	public function delete()
+	{
+		$this->project->delete();
+
+		$this->dispatch('projects-updated');
+
+		$this->redirectRoute('dashboard', navigate: true);
+	}
+
 	public function render()
 	{
 		return view('livewire.settings.edit-project');
