@@ -6,7 +6,9 @@
         </div>
     </div>
     @forelse($services as $service)
-        <x-services.item :service="$service" />
+        <div wire:key="{{ $service->id }}">
+            <x-services.item :service="$service"/>
+        </div>
     @empty
         <x-empty-state message="No services created">
             <x-button as="a" href="{{ route('services.create') }}" wire:navigate class="mt-4">New service</x-button>
