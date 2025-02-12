@@ -72,6 +72,6 @@
             </table>
         </div>
     @else
-        <x-empty-state message="You don't have any Incidents yet."></x-empty-state>
+        <x-empty-state message="You don't logged any Incidents yet."></x-empty-state>
     @endif
 </div>
