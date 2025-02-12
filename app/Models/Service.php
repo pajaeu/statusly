@@ -20,7 +20,7 @@ class Service extends Model
 		return $this->hasMany(Incident::class);
 	}
 
-	public function setStatus(ServiceStatus $status): void
+	public function changeStatus(ServiceStatus $status): void
 	{
 		$this->update(['status' => $status->value]);
 	}

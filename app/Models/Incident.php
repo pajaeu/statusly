@@ -12,4 +12,9 @@ class Incident extends Model
 	{
 		return $this->belongsTo(Service::class);
 	}
+
+	public function project(): BelongsTo
+	{
+		return $this->belongsTo(Project::class);
+	}
 }

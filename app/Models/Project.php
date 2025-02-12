@@ -24,6 +24,11 @@ class Project extends Model
 		return $this->hasMany(Service::class);
 	}
 
+	public function incidents(): HasMany
+	{
+		return $this->hasMany(Incident::class);
+	}
+
 	public function apiKeys(): HasMany
 	{
 		return $this->hasMany(ApiKey::class);

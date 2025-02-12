@@ -36,13 +36,42 @@
         </div>
     @endif
     <h2 class="mb-2 font-medium text-lg text-slate-700">Recent incidents</h2>
-    <div class="bg-white rounded-lg p-4 shadow">
-        <x-empty-state message="No recent incidents.">
-            <x-slot:icon>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636" />
-                </svg>
-            </x-slot:icon>
-        </x-empty-state>
+    <div class="bg-white rounded-lg shadow">
+        @if($incidents->isNotEmpty())
+            <table class="w-full text-left table-auto min-w-max">
+                <thead>
+                <tr>
+                    <th class="w-2/3 p-3 ps-4 border-b border-slate-200">
+                        <div class="block text-sm font-normal text-slate-500">Message</div>
+                    </th>
+                    <th class="p-3 pe-4 border-b border-slate-200">
+                        <div class="block text-sm font-normal text-slate-500">Created at</div>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($incidents as $incident)
+                    <tr wire:key="{{ $incident->id }}">
+                        <td class="p-3 ps-4 border-b border-slate-100">
+                            <div class="block text-sm font-normal text-slate-900">{{ $incident->message }}</div>
+                        </td>
+                        <td class="p-3 pe-4 border-b border-slate-100">
+                            <div class="block text-sm font-normal text-slate-900">{{ $incident->created_at->format('d. m. Y H:i:s') }}</div>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        @else
+            <div class="p-4">
+                <x-empty-state message="No recent incidents.">
+                    <x-slot:icon>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636" />
+                        </svg>
+                    </x-slot:icon>
+                </x-empty-state>
+            </div>
+        @endif
     </div>
 </div>

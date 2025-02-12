@@ -1,5 +1,5 @@
 <div>
-    <div class="fixed top-0 bottom-0 right-0 z-50 mt-3 mr-3 flex flex-col">
+    <div class="fixed top-0 right-0 z-50 mt-3 mr-3 flex flex-col">
         @foreach($messages as $message)
             <div wire-key="{{ uniqid() }}" x-data="{ closed: false }" x-show="!closed"
                  x-init="setTimeout(() => closed = true, 3000)"

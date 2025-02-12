@@ -3,6 +3,7 @@
 use App\Http\Controllers\Project\ShowProjectController;
 use App\Http\Controllers\Project\SwitchProjectController;
 use App\Livewire\Dashboard;
+use App\Livewire\Incident\ListIncident;
 use App\Livewire\Project\CreateProject;
 use App\Livewire\Service\CreateService;
 use App\Livewire\Service\EditService;
@@ -25,6 +26,8 @@ Route::group(['middleware' => ['auth', 'verified', 'has-project']], function () 
 	Route::get('/services/create', CreateService::class)->name('services.create');
 	Route::get('/services/{service}/edit', EditService::class)->name('services.edit')
 		->middleware('can:view,service');
+
+	Route::get('/incidents', ListIncident::class)->name('incidents.index');
 
 	Route::group(['prefix' => 'settings', 'as' => 'settings.'], function () {
 		Route::get('/projects', EditProject::class)->name('project');

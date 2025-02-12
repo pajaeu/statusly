@@ -12,7 +12,8 @@ class Dashboard extends Component
 
         return view('livewire.dashboard', [
 			'user' => $user,
-			'services' => $user->currentProject->services ?? []
+			'services' => $user->currentProject->services ?? [],
+			'incidents' => $user->currentProject->incidents ?? []
 		]);
     }
 }

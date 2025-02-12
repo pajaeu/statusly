@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use App\Enums\ServiceStatus;
 use App\Models\Incident;
+use App\Models\Project;
 use App\Models\Service;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
@@ -26,13 +27,13 @@ class CheckServiceStatus implements ShouldQueue
 		$statusCode = $this->checkService($this->service->url);
 
 		if ($statusCode === 200 && $this->service->status !== ServiceStatus::OPERATIONAL->value) {
-			$this->service->setStatus(ServiceStatus::OPERATIONAL);
+			$this->service->changeStatus(ServiceStatus::OPERATIONAL);
 		}
 
 		if (in_array($statusCode, [500, 503])) {
-			$this->service->setStatus( ServiceStatus::DOWN);
+			$this->service->changeStatus( ServiceStatus::DOWN);
 
-			$this->logIncident($this->service, $statusCode);
+			$this->logIncident($this->service, $this->service->project, $statusCode);
 		}
 	}
 
@@ -47,11 +48,11 @@ class CheckServiceStatus implements ShouldQueue
 		}
 	}
 
-	private function logIncident(Service $service, int $statusCode): void
+	private function logIncident(Service $service, Project $project, int $statusCode): void
 	{
 		Incident::create([
 			'service_id' => $service->id,
-			'status' => 'down',
+			'project_id' => $project->id,
 			'message' => "{$statusCode}: {$service->name} is currently down",
 		]);
 	}
