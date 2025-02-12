@@ -37,9 +37,41 @@
             </div>
         </div>
     </div>
-    <div class="w-full px-7 pb-16 lg:pb-24 max-w-6xl mx-auto">
+    <div class="w-full px-7 pb-16 lg:pb-24 max-w-6xl mx-auto" x-data="{ show: 'public' }">
+        <div class="max-w-lg mx-auto mb-6">
+            <div class="flex flex-wrap justify-center bg-white rounded-[16px] p-2 border border-slate-200">
+                <div class="cursor-pointer md:flex-1 flex justify-center items-center px-3 py-2 text-xs font-semibold rounded-lg" :class="{ 'bg-slate-100': show === 'public' }" @click="show = 'public'">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hidden sm:block size-5 me-2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    </svg>
+                    Public Page
+                </div>
+                <div class="cursor-pointer md:flex-1 flex justify-center items-center px-3 py-2 text-xs font-semibold rounded-lg" :class="{ 'bg-slate-100': show === 'services' }" @click="show = 'services'">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hidden sm:block size-5 me-2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 0 1-3-3m3 3a3 3 0 1 0 0 6h13.5a3 3 0 1 0 0-6m-16.5-3a3 3 0 0 1 3-3h13.5a3 3 0 0 1 3 3m-19.5 0a4.5 4.5 0 0 1 .9-2.7L5.737 5.1a3.375 3.375 0 0 1 2.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 0 1 .9 2.7m0 0a3 3 0 0 1-3 3m0 3h.008v.008h-.008v-.008Zm0-6h.008v.008h-.008v-.008Zm-3 6h.008v.008h-.008v-.008Zm0-6h.008v.008h-.008v-.008Z" />
+                    </svg>
+                    Services
+                </div>
+                <div class="cursor-pointer md:flex-1 flex justify-center items-center px-3 py-2 text-xs font-semibold rounded-lg" :class="{ 'bg-slate-100': show === 'themes' }" @click="show = 'themes'">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hidden sm:block size-5 me-2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.098 19.902a3.75 3.75 0 0 0 5.304 0l6.401-6.402M6.75 21A3.75 3.75 0 0 1 3 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 0 0 3.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008Z" />
+                    </svg>
+                    Themes
+                </div>
+                <div class="cursor-pointer md:flex-1 flex justify-center items-center px-3 py-2 text-xs font-semibold rounded-lg" :class="{ 'bg-slate-100': show === 'api' }" @click="show = 'api'">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hidden sm:block size-5 me-2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z" />
+                    </svg>
+                    API
+                </div>
+            </div>
+        </div>
         <div class="ring-1 ring-slate-200 rounded-[20px] p-2 shadow-lg">
-            <img src="{{ asset('img/screenshot.png') }}" alt="Statusly screenshot" class="w-full rounded-xl">
+            <img src="{{ asset('img/screenshots/public.png') }}" alt="Statusly screenshot" class="w-full rounded-xl" x-show="show === 'public'">
+            <img src="{{ asset('img/screenshots/services.png') }}" alt="Statusly screenshot" class="w-full rounded-xl" x-show="show === 'services'">
+            <img src="{{ asset('img/screenshots/theme.png') }}" alt="Statusly screenshot" class="w-full rounded-xl" x-show="show === 'themes'">
+            <img src="{{ asset('img/screenshots/api.png') }}" alt="Statusly screenshot" class="w-full rounded-xl" x-show="show === 'api'">
         </div>
     </div>
     <div class="w-full px-7 pb-16 md:pb-20 lg:pb-28 max-w-7xl mx-auto">
@@ -114,7 +146,7 @@
             <p class="text-slate-500">We leverage a powerful and efficient tech stack to ensure performance,
                 scalability, and a seamless user experience.</p>
         </div>
-        <div class="flex gap-5 mb-5">
+        <div class="flex flex-col md:flex-row gap-5 mb-5">
             <div class="w-full lg:w-1/2">
                 <div class="p-8 border border-slate-200 rounded-xl shadow-md">
                     <div class="flex items-center gap-4 mb-3">
@@ -140,7 +172,7 @@
                 </div>
             </div>
         </div>
-        <div class="flex gap-5">
+        <div class="flex flex-col md:flex-row gap-5">
             <div class="w-full lg:w-1/2">
                 <div class="p-8 border border-slate-200 rounded-xl shadow-md">
                     <div class="flex items-center gap-4 mb-3">
