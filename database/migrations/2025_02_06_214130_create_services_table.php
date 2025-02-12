@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
 			$table->string('name');
 			$table->string('status')->nullable()->default(ServiceStatus::OPERATIONAL->value);
-			$table->foreignIdFor(\App\Models\Project::class)->nullable()->constrained()->cascadeOnDelete();
+			$table->foreignIdFor(\App\Models\Project::class)->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
