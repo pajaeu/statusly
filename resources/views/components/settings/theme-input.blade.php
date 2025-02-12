@@ -10,13 +10,19 @@
         <div class="flex-1">
             <input type="radio" id="pink" wire:model="theme" value="pink" class="hidden peer" required />
             <label for="pink" class="block p-2 text-slate-800 bg-white border border-slate-200 rounded-lg cursor-pointer peer-checked:border-orange-500 hover:border-slate-300 transition-colors">
-                <span class="block text-white text-center text-lg p-4 bg-gradient-to-bl from-pink-300 to-pink-600 rounded">Pink</span>
+                <span class="block text-white text-center text-lg p-4 bg-gradient-to-r from-pink-600 to-pink-300 rounded">Pink</span>
             </label>
         </div>
         <div class="flex-1">
             <input type="radio" id="green" wire:model="theme" value="green" class="hidden peer" required />
             <label for="green" class="block p-2 text-slate-800 bg-white border border-slate-200 rounded-lg cursor-pointer peer-checked:border-orange-500 hover:border-slate-300 transition-colors">
                 <span class="block text-white text-center text-lg p-4 bg-gradient-to-bl from-green-300 to-green-600 rounded">Green</span>
+            </label>
+        </div>
+        <div class="flex-1">
+            <input type="radio" id="blue" wire:model="theme" value="blue" class="hidden peer" required />
+            <label for="blue" class="block p-2 text-slate-800 bg-white border border-slate-200 rounded-lg cursor-pointer peer-checked:border-orange-500 hover:border-slate-300 transition-colors">
+                <span class="block text-white text-center text-lg p-4 bg-gradient-to-b from-blue-300 to-blue-500 rounded">Blue</span>
             </label>
         </div>
         <div class="flex-1">
