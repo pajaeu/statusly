@@ -1,3 +1,5 @@
+<x-slot:title>Edit service | statusly</x-slot:title>
+
 <div class="w-full max-w-6xl mx-auto">
     <x-projects.current-heading heading="Edit service" class="mb-6"/>
     <div class="bg-white rounded-lg shadow px-6 py-4 mb-6">

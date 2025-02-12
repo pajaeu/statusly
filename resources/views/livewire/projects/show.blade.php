@@ -1,3 +1,5 @@
+<x-slot:title>{{ $project->name }} | statusly</x-slot:title>
+
 <div wire:poll.5s class="w-screen h-screen bg-slate-100">
     @includeIf('projects.themes.' . $project->theme, ['project' => $project])
     <div class="w-full sm:max-w-3xl pt-10 px-4 md:px-0 mx-auto text-slate-800">

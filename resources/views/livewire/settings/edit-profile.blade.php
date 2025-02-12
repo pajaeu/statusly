@@ -1,3 +1,5 @@
+<x-slot:title>Profile settings | statusly</x-slot:title>
+
 <div class="w-full max-w-6xl mx-auto">
     <h1 class="mb-6 font-semibold text-3xl text-slate-800">Settings</h1>
     <x-settings.tabs/>

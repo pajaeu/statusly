@@ -1,3 +1,5 @@
+<x-slot:title>New project | statusly</x-slot:title>
+
 <div class="w-screen h-screen bg-slate-100 flex items-center justify-center">
     <div class="w-full max-w-sm">
         <div class="bg-white border border-slate-200 rounded-lg shadow p-8">

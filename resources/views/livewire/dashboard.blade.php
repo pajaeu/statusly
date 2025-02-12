@@ -1,3 +1,5 @@
+<x-slot:title>Dashboard | statusly</x-slot:title>
+
 <div class="w-full max-w-6xl mx-auto">
     <h1 class="mb-10 font-medium text-3xl text-slate-800">Welcome back, <span class="font-semibold">{{ $user->name }}</span>!</h1>
     <h2 class="mb-2 font-medium text-lg text-slate-700">Your statuses</h2>
