@@ -10,7 +10,7 @@ class DeleteProject
 
 	public function handle(Project $project): bool
 	{
-		DB::beginTransaction();;
+		DB::beginTransaction();
 
 		try {
 			$user = auth()->user();
