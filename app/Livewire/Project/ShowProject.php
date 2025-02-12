@@ -11,6 +11,10 @@ class ShowProject extends Component
 
     public function render()
     {
-        return view('livewire.projects.show');
+		$incidents = $this->project->incidents()->latest()->get();
+
+        return view('livewire.projects.show', [
+			'incidents' => $incidents
+		]);
     }
 }

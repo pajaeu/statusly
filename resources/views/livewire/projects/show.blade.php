@@ -35,6 +35,27 @@
                 <p class="py-4 text-slate-500">This project does not have any service yet.</p>
             @endforelse
         </div>
+        <div x-data="{ collapsed: true }">
+            <div class="cursor-pointer flex items-center mb-3" @click="collapsed = !collapsed">
+                <h2 class="text-md font-semibold text-slate-800">Incident history</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ms-auto size-5" x-show="!collapsed">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="ms-auto size-5" x-show="collapsed" x-cloak>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                </svg>
+            </div>
+            <div class="bg-white rounded-lg shadow border border-slate-200 px-6 py-4 mb-10" x-show="!collapsed">
+                @forelse($incidents as $incident)
+                    <div class="text-slate-800 py-3 border-b last:border-b-0 border-slate-300">
+                        <div class="mb-2">{{ $incident->message }}</div>
+                        <div class="text-sm text-slate-400">{{ $incident->created_at->format('j. M y, H:i') }}</div>
+                    </div>
+                @empty
+                    <div class="p-4 text-center text-slate-500 text-md">History is empty</div>
+                @endforelse
+            </div>
+        </div>
     </div>
     <div class="pt-4 pb-8 flex items-center justify-center">
         <div class="text-center">
