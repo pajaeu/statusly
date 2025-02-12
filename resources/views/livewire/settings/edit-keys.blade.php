@@ -53,7 +53,7 @@
     </div>
     <div class="bg-white rounded-lg shadow px-6 py-4 mb-6">
         @forelse($keys as $key)
-            <div wire:key="{{ $key->id }}" class="flex items-center py-4 border-b border-slate-200">
+            <div wire:key="{{ $key->id }}" class="flex items-center py-4 border-b border-slate-200 last:border-b-0">
                 <div>{{ $key->name }}</div>
                 <div class="ms-auto">
                     <div x-data="{ show: false }" class="relative flex items-center justify-end">
