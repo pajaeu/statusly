@@ -37,8 +37,6 @@ class EditProject extends Component
 		$this->dispatch('flash-message', type: 'success', message: 'Project successfully updated.');
 
 		$this->dispatch('projects-updated');
-
-		$this->redirect(back()->getTargetUrl(), true);
 	}
 
 	public function delete(DeleteProject $action)

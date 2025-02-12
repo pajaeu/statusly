@@ -34,8 +34,6 @@ class EditProfile extends Component
 		$this->user->update($this->only(['name']));
 
 		$this->dispatch('flash-message', type: 'success', message: 'Profile successfully updated.');
-
-		$this->redirect(back()->getTargetUrl(), true);
 	}
 
 	public function changePassword()
@@ -49,7 +47,7 @@ class EditProfile extends Component
 
 		$this->dispatch('flash-message', type: 'success', message: 'Password successfully changed.');
 
-		$this->redirect(back()->getTargetUrl(), true);
+		$this->reset(['current_password', 'password', 'pasword_confirmation']);
 	}
 
     public function render()

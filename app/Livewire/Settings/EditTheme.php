@@ -23,8 +23,6 @@ class EditTheme extends Component
 		]);
 
 		$this->dispatch('flash-message', type: 'success', message: 'Theme successfully updated.');
-
-		$this->redirectRoute('settings.theme', navigate: true);
 	}
 
     public function render()
