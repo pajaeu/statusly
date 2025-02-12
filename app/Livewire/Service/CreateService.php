@@ -2,26 +2,31 @@
 
 namespace App\Livewire\Service;
 
-use Livewire\Attributes\Validate;
+use Illuminate\Validation\Rule;
 use Livewire\Component;
 
 class CreateService extends Component
 {
-	#[Validate('required')]
+
 	public string $name;
 
-	#[Validate('required|string')]
+	public ?string $url = null;
+
 	public string $status;
 
 	public function save()
 	{
-		$this->validate();
+		$this->validate([
+			'name' => 'required|string',
+			'url' => Rule::when($this->url, 'required|string|url'),
+			'status' => 'required|string|in:operational,maintenance,down'
+		]);
 
 		$user = auth()->user();
 
 		$user->currentProject
 			->services()
-			->create($this->pull(['name', 'status']));
+			->create($this->pull(['name', 'url', 'status']));
 
 		$this->dispatch('flash-message', type: 'success', message: 'Service successfully created.');
 

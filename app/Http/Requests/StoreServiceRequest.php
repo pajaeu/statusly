@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreServiceRequest extends FormRequest
 {
@@ -23,6 +24,7 @@ class StoreServiceRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
+			'url' => Rule::when(fn() => $this->url, 'required|string|url'),
 			'status' => 'required|string|in:operational,maintenance,down',
         ];
     }

@@ -3,33 +3,38 @@
 namespace App\Livewire\Service;
 
 use App\Models\Service;
-use Livewire\Attributes\Validate;
+use Illuminate\Validation\Rule;
 use Livewire\Component;
 
 class EditService extends Component
 {
 	public Service $service;
 
-	#[Validate('required')]
 	public string $name;
 
-	#[Validate('required|string')]
+	public ?string $url = null;
+
 	public string $status;
 
 	public function mount(Service $service)
 	{
 		$this->service = $service;
 		$this->name = $service->name;
+		$this->url = $service->url;
 		$this->status = $service->status;
 	}
 
 	public function save()
 	{
-		$this->validate();
+		$this->validate([
+			'name' => 'required|string',
+			'url' => Rule::when($this->url, 'required|string|url'),
+			'status' => 'required|string|in:operational,maintenance,down'
+		]);
 
 		$this->authorize('update', $this->service);
 
-		$this->service->update($this->only(['name', 'status']));
+		$this->service->update($this->only(['name', 'url', 'status']));
 
 		$this->dispatch('flash-message', type: 'success', message: 'Service successfully updated.');
 	}

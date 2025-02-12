@@ -23,15 +23,9 @@ class UpdateServiceRequest extends FormRequest
 	public function rules(): array
 	{
 		return [
-			'name' => Rule::when(fn() => $this->name, [
-				'required',
-				'string'
-			]),
-			'status' => Rule::when(fn() => $this->status, [
-				'required',
-				'string',
-				'in:operational,maintenance,down'
-			]),
+			'name' => Rule::when(fn() => $this->name, 'required|string'),
+			'url' => Rule::when(fn() => $this->url, 'required|string|url'),
+			'status' => Rule::when(fn() => $this->status, 'required|string|in:operational,maintenance,down'),
 		];
 	}
 }

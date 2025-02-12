@@ -11,6 +11,13 @@
                     <x-input-error :message="$message"/>
                 @enderror
             </div>
+            <div class="mb-4">
+                <label for="url" class="block mb-2 text-sm text-slate-400">URL</label>
+                <input type="text" wire:model="url" class="w-full p-2 border rounded-lg transition-all focus:ring-2 focus:ring-orange-500 outline-0">
+                @error('url')
+                    <x-input-error :message="$message"/>
+                @enderror
+            </div>
             <x-services.status-input class="mb-4"/>
             <x-button>Add service</x-button>
         </form>
