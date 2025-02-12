@@ -51,7 +51,7 @@ class ListIncident extends Component
 	public function render()
 	{
 		return view('livewire.incidents.list', [
-			'incidents' => Incident::where('project_id', auth()->user()->current_project_id)->with('service')->get()
+			'incidents' => Incident::where('project_id', auth()->user()->current_project_id)->with('service')->latest()->get()
 		]);
 	}
 }

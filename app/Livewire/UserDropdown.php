@@ -20,7 +20,7 @@ class UserDropdown extends Component
 
         return view('livewire.user-dropdown', [
 			'user' => $user,
-			'projects' => $user->projects
+			'projects' => $user->projects()->latest()->get()
 		]);
     }
 }
