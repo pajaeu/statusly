@@ -12,8 +12,6 @@
             <x-services.item :service="$service"/>
         </div>
     @empty
-        <x-empty-state message="You don't have any Services yet.">
-            <x-button as="a" href="{{ route('services.create') }}" wire:navigate class="mt-4">New service</x-button>
-        </x-empty-state>
+        <x-empty-state message="You don't have any Services yet."></x-empty-state>
     @endforelse
 </div>

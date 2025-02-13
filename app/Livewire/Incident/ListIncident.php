@@ -15,7 +15,7 @@ class ListIncident extends Component
 
 	public function mount()
 	{
-		$this->services = Service::where('project_id', auth()->user()->current_project_id)->pluck('name', 'id')->toArray();
+		$this->services = Service::where('project_id', current_project_id())->pluck('name', 'id')->toArray();
 	}
 
 	public function create()
@@ -30,7 +30,7 @@ class ListIncident extends Component
 
 		Incident::create([
 			'service_id' => $this->pull('service'),
-			'project_id' => auth()->user()->current_project_id,
+			'project_id' => current_project_id(),
 			'message' => $this->pull('message')
 		]);
 
@@ -51,7 +51,7 @@ class ListIncident extends Component
 	public function render()
 	{
 		return view('livewire.incidents.list', [
-			'incidents' => Incident::where('project_id', auth()->user()->current_project_id)->with('service')->latest()->get()
+			'incidents' => Incident::where('project_id', current_project_id())->with('service')->latest()->get()
 		]);
 	}
 }

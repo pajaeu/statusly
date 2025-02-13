@@ -18,12 +18,9 @@ class ListService extends Component
 
 	public function render()
 	{
-		$project = auth()->user()->currentProject;
-		$services = $project->services()->latest()->get();
-
 		return view('livewire.services.list', [
-			'currentProject' => $project,
-			'services' => $services,
+			'currentProject' => current_project(),
+			'services' => current_project()->services()->latest()->get(),
 		]);
 	}
 }

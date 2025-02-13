@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Service;
 
+use App\Models\Service;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 
@@ -22,11 +23,12 @@ class CreateService extends Component
 			'status' => 'required|string|in:operational,maintenance,down'
 		]);
 
-		$user = auth()->user();
-
-		$user->currentProject
-			->services()
-			->create($this->pull(['name', 'url', 'status']));
+		Service::create([
+			'name' => $this->pull('name'),
+			'url' => $this->pull('url'),
+			'status' => $this->pull('status'),
+			'project_id' => current_project_id()
+		]);
 
 		$this->dispatch('flash-message', type: 'success', message: 'Service successfully created.');
 
@@ -35,10 +37,8 @@ class CreateService extends Component
 
 	public function render()
 	{
-		$project = auth()->user()->currentProject;
-
 		return view('livewire.services.create', [
-			'currentProject' => $project
+			'currentProject' => current_project()
 		]);
 	}
 }

@@ -2,25 +2,24 @@
 
 namespace App\Actions;
 
+use App\Models\Project;
 use Illuminate\Support\Facades\DB;
 
 class CreateProject
 {
 
-	public function create(string $title, string $slug): bool
+	public function create(string $name, string $slug): bool
 	{
 		DB::beginTransaction();
 
 		try {
-			$user = auth()->user();
+			$project = Project::create([
+				'name' => $name,
+				'slug' => $slug,
+				'user_id' => auth()->id()
+			]);
 
-			$project = $user->projects()
-				->create([
-					'name' => $title,
-					'slug' => $slug,
-				]);
-
-			$user->update([
+			auth()->user()->update([
 				'current_project_id' => $project->id,
 			]);
 

@@ -13,12 +13,12 @@ class EditTheme extends Component
 
 	public function mount()
 	{
-		$this->theme = auth()->user()->currentProject->theme ?? 'default';
+		$this->theme = current_project()->theme ?? 'default';
 	}
 
 	public function save()
 	{
-		auth()->user()->currentProject->update([
+		current_project()->update([
 			'theme' => $this->theme,
 		]);
 

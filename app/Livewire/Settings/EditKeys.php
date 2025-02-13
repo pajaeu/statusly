@@ -17,9 +17,10 @@ class EditKeys extends Component
 			'name' => 'required|string'
 		]);
 
-		auth()->user()->currentProject->apiKeys()->create([
+		ApiKey::create([
 			'name' => $this->pull('name'),
-			'token' => Str::uuid()
+			'token' => Str::random(32),
+			'project_id' => current_project_id()
 		]);
 
 		$this->dispatch('flash-message', message: 'API Key successfully created.');
@@ -37,7 +38,7 @@ class EditKeys extends Component
     public function render()
     {
         return view('livewire.settings.edit-keys', [
-			'keys' => auth()->user()->currentProject->apiKeys ?? []
+			'keys' => current_project()->apiKeys ?? []
 		]);
     }
 }
