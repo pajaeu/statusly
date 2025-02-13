@@ -30,7 +30,7 @@ class ServiceController
 			], 404);
 		}
 
-		return response()->json(new ServiceResource($service));
+		return new ServiceResource($service);
 	}
 
 	public function store(StoreServiceRequest $request)
@@ -56,7 +56,7 @@ class ServiceController
 
 		$service->fill($request->validated())->save();
 
-		return response()->json(new ServiceResource($service));
+		return new ServiceResource($service);
 	}
 
 	public function destroy(Request $request, int $id)
@@ -71,8 +71,6 @@ class ServiceController
 
 		$service->delete();
 
-		return response()->json([
-			'message' => 'Service deleted'
-		]);
+		return response()->json('Service was deleted');
 	}
 }
