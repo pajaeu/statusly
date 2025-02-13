@@ -36,7 +36,7 @@ class EditService extends Component
 
 		$this->service->update($this->only(['name', 'url', 'status']));
 
-		$this->dispatch('flash-message', type: 'success', message: 'Service successfully updated.');
+		$this->dispatch('flash-message', message: 'Service successfully updated.');
 	}
 
 	public function render()

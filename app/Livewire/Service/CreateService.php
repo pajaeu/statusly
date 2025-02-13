@@ -30,7 +30,7 @@ class CreateService extends Component
 			'project_id' => current_project_id()
 		]);
 
-		$this->dispatch('flash-message', type: 'success', message: 'Service successfully created.');
+		$this->dispatch('flash-message', message: 'Service successfully created.');
 
 		$this->redirectRoute('services.index', navigate: true);
 	}

@@ -20,6 +20,7 @@
             </div>
             <x-services.status-input class="mb-4"/>
             <x-button>Add service</x-button>
+            <x-secondary-button as="a" href="{{ route('services.index') }}" wire:navigate>Cancel</x-secondary-button>
         </form>
     </div>
 </div>

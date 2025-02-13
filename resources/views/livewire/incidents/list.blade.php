@@ -30,6 +30,7 @@
                             @enderror
                         </div>
                         <x-button>Log incident</x-button>
+                        <x-secondary-button @click="modalOpen = false">Cancel</x-secondary-button>
                     </form>
                 </x-slot:body>
             </x-modal>

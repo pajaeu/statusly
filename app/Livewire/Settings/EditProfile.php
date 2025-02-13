@@ -3,7 +3,6 @@
 namespace App\Livewire\Settings;
 
 use App\Models\User;
-use Illuminate\Validation\Rule;
 use Livewire\Component;
 
 class EditProfile extends Component
@@ -33,7 +32,7 @@ class EditProfile extends Component
 
 		$this->user->update($this->only(['name']));
 
-		$this->dispatch('flash-message', type: 'success', message: 'Profile successfully updated.');
+		$this->dispatch('flash-message', message: 'Profile successfully updated.');
 	}
 
 	public function changePassword()
@@ -45,7 +44,7 @@ class EditProfile extends Component
 
 		$this->user->update($this->only(['password']));
 
-		$this->dispatch('flash-message', type: 'success', message: 'Password successfully changed.');
+		$this->dispatch('flash-message', message: 'Password successfully changed.');
 
 		$this->reset(['current_password', 'password', 'pasword_confirmation']);
 	}

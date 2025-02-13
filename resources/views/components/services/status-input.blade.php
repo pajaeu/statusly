@@ -1,6 +1,6 @@
 <div {{ $attributes->merge(['class' => 'status-inputs']) }}>
     <label class="block mb-2 text-sm text-slate-400">Status</label>
-    <div class="flex items-center gap-3">
+    <div class="flex flex-wrap items-center gap-3">
         <div class="flex-1">
             <input type="radio" id="operational" wire:model="status" value="operational" class="hidden peer" required />
             <label for="operational" class="flex items-center justify-center w-full p-4 text-slate-800 bg-white border border-slate-200 rounded-lg cursor-pointer peer-checked:border-orange-500 hover:border-slate-300 transition-colors">

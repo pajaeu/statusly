@@ -8,6 +8,7 @@ use Livewire\Component;
 
 class FlashMessages extends Component
 {
+
 	public array $messages = [];
 
 	#[On('flash-message')]

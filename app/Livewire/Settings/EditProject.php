@@ -34,7 +34,7 @@ class EditProject extends Component
 
 		$this->project->update($this->only(['name', 'slug']));
 
-		$this->dispatch('flash-message', type: 'success', message: 'Project successfully updated.');
+		$this->dispatch('flash-message', message: 'Project successfully updated.');
 
 		$this->dispatch('projects-updated');
 	}
@@ -43,7 +43,7 @@ class EditProject extends Component
 	{
 		$action->handle($this->project);
 
-		$this->dispatch('flash-message', type: 'success', message: 'Project successfully deleted.');
+		$this->dispatch('flash-message', message: 'Project successfully deleted.');
 
 		$this->dispatch('projects-updated');
 

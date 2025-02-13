@@ -22,7 +22,7 @@ class EditTheme extends Component
 			'theme' => $this->theme,
 		]);
 
-		$this->dispatch('flash-message', type: 'success', message: 'Theme successfully updated.');
+		$this->dispatch('flash-message', message: 'Theme successfully updated.');
 	}
 
     public function render()
