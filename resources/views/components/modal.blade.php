@@ -21,7 +21,7 @@
                  x-transition:leave="ease-in duration-200"
                  x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
                  x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                 class="relative w-full py-6 bg-white px-7 sm:max-w-lg sm:rounded-lg">
+                 class="relative w-full py-6 bg-white shadow-lg px-7 sm:max-w-lg sm:rounded-lg">
                 <div class="flex items-center justify-between pb-2">
                     <h3 class="text-lg mb-4 font-semibold">{{ $title }}</h3>
                     <button @click="modalOpen=false"
