@@ -1,6 +1,6 @@
 <x-slot:title>{{ $project->name }} | statusly</x-slot:title>
 
-<div wire:poll.5s class="w-screen h-screen bg-slate-100">
+<div wire:poll.5s class="w-screen min-h-screen h-full bg-slate-100">
     @includeIf('projects.themes.' . $project->theme, ['project' => $project])
     <div class="w-full sm:max-w-3xl pt-10 px-4 md:px-0 mx-auto text-slate-800">
         <div class="bg-white rounded-lg shadow border border-slate-200 px-6 py-4 mb-10">
@@ -45,7 +45,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
                 </svg>
             </div>
-            <div class="bg-white rounded-lg shadow border border-slate-200 px-6 py-4 mb-10" x-show="!collapsed">
+            <div class="bg-white rounded-lg h-full max-h-80 overflow-y-auto shadow border border-slate-200 px-6 py-4 mb-10" x-show="!collapsed">
                 @forelse($incidents as $incident)
                     <div class="text-slate-800 py-3 border-b last:border-b-0 border-slate-300">
                         <div class="mb-2">{{ $incident->message }}</div>
