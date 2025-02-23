@@ -18,6 +18,8 @@ class EditTheme extends Component
 
 	public function save()
 	{
+		$this->validate();
+
 		current_project()->update([
 			'theme' => $this->theme,
 		]);
