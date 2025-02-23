@@ -23,9 +23,10 @@ class ListIncident extends Component
 		$this->validate([
 			'service' => [
 				'required',
+				'integer',
 				Rule::in(array_keys($this->services)),
 			],
-			'message' => 'required',
+			'message' => 'required|string',
 		]);
 
 		Incident::create([

@@ -25,9 +25,10 @@ class EditProject extends Component
 	public function save()
 	{
 		$this->validate([
-			'name' => 'required|min:6',
+			'name' => 'required|string|min:6',
 			'slug' => [
 				'required',
+				'string',
 				Rule::unique('projects')->ignore($this->project)
 			]
 		]);

@@ -11,7 +11,7 @@ use Livewire\Component;
 class CreateProject extends Component
 {
 
-	#[Validate('required|min:6')]
+	#[Validate('required|string|min:6')]
 	public string $name;
 
 	public function save(CreateProjectAction $action)
