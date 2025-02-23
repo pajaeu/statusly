@@ -11,7 +11,6 @@ class UserDropdown extends Component
 	#[On('projects-updated')]
 	public function updateProjectList()
 	{
-		$this->reset();
 	}
 
     public function render()
