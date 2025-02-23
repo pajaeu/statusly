@@ -26,7 +26,7 @@ class CreateProject extends Component
 
 		$name = $this->pull('name');
 
-		$action->create($name, Str::slug($name . '-' . uniqid()));
+		$action->handle($name, Str::slug($name . '-' . uniqid()));
 
 		$this->dispatch('projects-updated');
 

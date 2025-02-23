@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class CreateProject
 {
 
-	public function create(string $name, string $slug): bool
+	public function handle(string $name, string $slug): bool
 	{
 		DB::beginTransaction();
 
