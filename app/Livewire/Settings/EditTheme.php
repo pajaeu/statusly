@@ -8,7 +8,7 @@ use Livewire\Component;
 class EditTheme extends Component
 {
 
-	#[Validate('required|string')]
+	#[Validate('required|string|in:default,pink,green,blue,dark')]
 	public string $theme = 'default';
 
 	public function mount()
