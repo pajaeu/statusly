@@ -25,7 +25,7 @@ class EditProject extends Component
 	public function save()
 	{
 		$this->validate([
-			'name' => 'required|string|min:6',
+			'name' => 'required|string|min:6|max:255',
 			'slug' => [
 				'required',
 				'string',

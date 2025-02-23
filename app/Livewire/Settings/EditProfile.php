@@ -27,7 +27,7 @@ class EditProfile extends Component
 	public function save()
 	{
 		$this->validate([
-			'name' => 'required|string|min:3',
+			'name' => 'required|string|min:3|max:255',
 		]);
 
 		$this->user->update($this->only(['name']));

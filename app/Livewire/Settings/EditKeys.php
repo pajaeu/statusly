@@ -14,7 +14,7 @@ class EditKeys extends Component
 	public function create()
 	{
 		$this->validate([
-			'name' => 'required|string'
+			'name' => 'required|string|min:3|max:255'
 		]);
 
 		ApiKey::create([
