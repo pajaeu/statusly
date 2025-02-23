@@ -23,7 +23,7 @@ class StoreIncidentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'message' => 'required|string',
+            'message' => 'required|string|min:6|max:255',
 			'service_id' => [
 				'required',
 				'integer',

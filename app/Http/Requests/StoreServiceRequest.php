@@ -23,7 +23,7 @@ class StoreServiceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string',
+            'name' => 'required|string|min:3|max:255',
 			'url' => Rule::when(fn() => $this->url, 'required|string|url'),
 			'status' => 'required|string|in:operational,maintenance,down',
         ];

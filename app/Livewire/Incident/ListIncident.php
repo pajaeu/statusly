@@ -26,7 +26,7 @@ class ListIncident extends Component
 				'integer',
 				Rule::in(array_keys($this->services)),
 			],
-			'message' => 'required|string',
+			'message' => 'required|string|min:6|max:255',
 		]);
 
 		Incident::create([
